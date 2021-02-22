@@ -1,7 +1,7 @@
 # Import socket module
 import socket
 
-def printmon(m,lifes): # a helping function just to print conveniently
+def printinfo(m,lifes): # a helping function just to print conveniently the infos that server has sended.
     word=""
     for c in m: word+=c+" "
     print(f"{word} ({lifes} lifes remain)")
@@ -23,7 +23,7 @@ def main():
         # receive data from the server
         lifes = s.recv(1024)
         hidden_word = s.recv(1024).decode()
-        printmon(hidden_word, lifes[0])
+        printinfo(hidden_word, lifes[0])
 
         if lifes[0] == 0 or (not "_" in hidden_word):  # if one of these conditions are true the game has ended
             break
